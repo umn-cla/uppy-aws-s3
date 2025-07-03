@@ -1,0 +1,43 @@
+{
+  "name": "@umn-cla/uppy-aws-s3",
+  "description": "Tweaked Uppy plugin for uploading to AWS S3",
+  "version": "4.2.3",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json"
+  },
+  "keywords": [
+    "file uploader",
+    "aws s3",
+    "amazon s3",
+    "s3",
+    "uppy",
+    "uppy-plugin",
+    "multipart"
+  ],
+  "homepage": "https://uppy.io",
+  "bugs": {
+    "url": "https://github.com/transloadit/uppy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transloadit/uppy.git"
+  },
+  "dependencies": {
+    "@uppy/companion-client": "workspace:^",
+    "@uppy/utils": "workspace:^"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.362.0",
+    "@aws-sdk/s3-request-presigner": "^3.362.0",
+    "nock": "^13.1.0",
+    "typescript": "^5.8.3",
+    "vitest": "^1.6.1",
+    "whatwg-fetch": "3.6.2"
+  },
+  "peerDependencies": {
+    "@uppy/core": "workspace:^"
+  }
+}

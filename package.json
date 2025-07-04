@@ -7,8 +7,16 @@
   "type": "module",
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "build:watch": "tsc --build tsconfig.build.json --watch"
+    "build:watch": "tsc --build tsconfig.build.json --watch",
+    "release": "release-it",
+    "example:client": "npm run dev --workspace=example",
+    "example:server": "npm run server:watch --workspace=example",
+    "example": "npm-run-all --parallel example:server example:client",
+    "dev": "npm-run-all --parallel build:watch example"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "file uploader",
     "aws s3",
@@ -18,13 +26,13 @@
     "uppy-plugin",
     "multipart"
   ],
-  "homepage": "https://uppy.io",
+  "homepage": "https://github.com/umn-cla/uppy-aws-s3",
   "bugs": {
-    "url": "https://github.com/transloadit/uppy/issues"
+    "url": "https://github.com/umn-cla/uppy-aws-s3/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/transloadit/uppy.git"
+    "url": "git+https://github.com/umn-cla/uppy-aws-s3.git"
   },
   "dependencies": {
     "@uppy/companion-client": "^4.4.2",
@@ -34,11 +42,23 @@
     "@aws-sdk/client-s3": "^3.362.0",
     "@aws-sdk/s3-request-presigner": "^3.362.0",
     "nock": "^13.1.0",
+    "npm-run-all2": "^8.0.4",
     "typescript": "^5.8.3",
     "vitest": "^1.6.1",
     "whatwg-fetch": "3.6.2"
   },
   "peerDependencies": {
     "@uppy/core": "^4.4.7"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
+  },
+  "workspaces": [
+    "example"
+  ]
 }

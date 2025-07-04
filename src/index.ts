@@ -761,15 +761,17 @@ export default class AwsS3Multipart<
         // https://github.com/transloadit/uppy/issues/5388#issuecomment-2464885562
         if (method.toUpperCase() === 'POST' && location == null) {
           // Not being able to read the Location header is not a fatal error.
-          console.error(
+          console.warn(
             '@uppy/aws-s3: Could not read the Location header. This likely means CORS is not configured correctly on the S3 Bucket. See https://uppy.io/docs/aws-s3/#setting-up-your-s3-bucket',
           )
         }
         if (etag == null) {
-          console.error(
+          console.warn(
             '@uppy/aws-s3: Could not read the ETag header. This likely means CORS is not configured correctly on the S3 Bucket. See https://uppy.io/docs/aws-s3/#setting-up-your-s3-bucket',
           )
-          return
+          // This is not a fatal error as we'll get the list
+          // of ETags on the backend when completing the upload.
+          // return
         }
 
         onComplete?.(etag)

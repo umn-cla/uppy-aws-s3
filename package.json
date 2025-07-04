@@ -43,6 +43,7 @@
     "@aws-sdk/s3-request-presigner": "^3.362.0",
     "nock": "^13.1.0",
     "npm-run-all2": "^8.0.4",
+    "release-it": "^19.0.3",
     "typescript": "^5.8.3",
     "vitest": "^1.6.1",
     "whatwg-fetch": "3.6.2"
@@ -52,11 +53,6 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "release-it": {
-    "github": {
-      "release": true
-    }
   },
   "workspaces": [
     "example"

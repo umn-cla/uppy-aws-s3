@@ -18,6 +18,7 @@ import type { Body, Meta, UppyFile } from '@uppy/utils/lib/UppyFile'
 // import packageJson from '../package.json' with { type: 'json' }
 // `with` is not supported in vite 4, so use deprecated `assert` until
 // we can drop support for vite 4.
+// @ts-expect-error
 import packageJson from "../package.json" assert { type: "json" };
 import createSignedURL from './createSignedURL.js'
 import { HTTPCommunicationQueue } from './HTTPCommunicationQueue.js'
